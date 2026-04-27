@@ -160,6 +160,7 @@ function App() {
           <div className="flex flex-col px-6 py-4 space-y-4">
             <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase hover:text-teal-300 py-2">HOME</a>
             <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase hover:text-teal-300 py-2">ABOUT US</a>
+            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase hover:text-teal-300 py-2">SERVICES</a>
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase hover:text-teal-300 py-2">CONTACT US</a>
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full text-center px-6 py-3 bg-white text-[#2d5f5d] text-sm font-bold rounded-full uppercase tracking-wider mt-2 hover:bg-teal-50 transition-colors inline-block">
               Get Started
@@ -688,12 +689,11 @@ function App() {
               if (!formData.name || !formData.email || !formData.message) return;
               setFormStatus('sending');
               try {
-                // Replace these with your actual EmailJS credentials
                 await emailjs.sendForm(
-                  'YOUR_SERVICE_ID',
-                  'YOUR_TEMPLATE_ID',
+                  'service_ud7264j',
+                  'template_n9bkssj',
                   formRef.current,
-                  'YOUR_PUBLIC_KEY'
+                  'Bp8PDPszJ-F2heSnv'
                 );
                 setFormStatus('success');
                 setFormData({ name: '', email: '', subject: '', message: '' });
@@ -703,12 +703,15 @@ function App() {
                 setTimeout(() => setFormStatus('idle'), 5000);
               }
             }}>
+              {/* Hidden time field — auto-filled */}
+              <input type="hidden" name="time" value={new Date().toLocaleString('en-PH', { dateStyle: 'full', timeStyle: 'short' })} />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-[#11b5a4]">Your Name</label>
                   <input
                     type="text"
-                    name="from_name"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
 import logo from './assets/logo.png';
 
 function App() {
@@ -119,7 +119,7 @@ function App() {
       </nav>
 
       {/* Enhanced Hero Section with Advanced Animations */}
-      <section id="about" ref={heroRef} className="relative min-h-screen overflow-hidden">
+      <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
         {/* Base Deep Teal Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#2d5f5d] via-[#3a6e6c] to-[#4a7c7a]" 
              style={{
@@ -380,30 +380,7 @@ function App() {
             </MagneticButton>
           </div>
 
-          {/* Portfolio Preview Cards with Mask Reveal */}
-          <div 
-            data-stagger
-            className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory opacity-0"
-            style={{
-              animation: 'fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards'
-            }}
-          >
-            <ImageRevealCard 
-              delay={0}
-              imageUrl="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
-              className="w-56 h-40"
-            />
-            <ImageRevealCard 
-              delay={0.1}
-              imageUrl="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop"
-              className="w-64 h-48 -mt-4 z-10"
-            />
-            <ImageRevealCard 
-              delay={0.2}
-              imageUrl="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
-              className="w-56 h-40"
-            />
-          </div>
+          {/* Removed Portfolio Preview Cards as requested */}
 
           {/* Scroll Indicator */}
           <div 
@@ -430,34 +407,122 @@ function App() {
 
       {/* Services Section removed as requested */}
 
-      {/* CTA Section */}
+      {/* About Us Section */}
+      <section 
+        id="about" 
+        data-animate
+        className="py-24 px-6 max-w-7xl mx-auto opacity-0 translate-y-20"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div data-stagger className="space-y-6">
+            <h2 className="text-sm font-bold text-[#11b5a4] uppercase tracking-widest">About Us</h2>
+            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              Driving Digital <br/>
+              <span className="text-[#11b5a4]">Innovation</span> Forward
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              Deploysage Consulting & Solutions was started by brothers who share a passion for 
+              building technologies that create real impact in society.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              We guide businesses as they transition into technology-driven organizations. Our goal is to 
+              deliver tailored software, comprehensive web applications, and seamless integrations that 
+              scale with your vision.
+            </p>
+          </div>
+          <div data-stagger className="relative">
+            <div className="absolute inset-0 bg-[#11b5a4]/10 rounded-3xl transform translate-x-4 translate-y-4"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
+              alt="About Deploysage" 
+              className="relative z-10 rounded-3xl shadow-xl w-full h-[400px] object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Us Section */}
       <section 
         id="contact" 
         data-animate
-        className="py-24 px-6 bg-black text-white opacity-0 translate-y-20"
+        className="py-24 px-6 bg-gradient-to-b from-[#e6f5f4] to-white opacity-0 translate-y-20 relative"
       >
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 
-            data-stagger
-            className="text-3xl md:text-5xl font-bold"
-          >
-            Ready to transform?
+        <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
+          <h2 data-stagger className="text-4xl md:text-5xl font-bold text-gray-900">
+            Get In Touch
           </h2>
-          <p 
-            data-stagger
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
-          >
-            Let's discuss how technology can accelerate your growth.
+          <p data-stagger className="text-gray-600 text-lg max-w-2xl mx-auto">
+            We'll create high-quality linkable content and build at least 40 high-authority links to each
+            asset, paving the way for you to grow your rankings, improve brand.
           </p>
-          <MagneticButton>
-            <button 
-              data-stagger
-              className="inline-flex items-center gap-3 px-8 py-4 bg-teal-600 text-white font-bold text-lg rounded-full hover:bg-teal-500 transition-all duration-300 group hover:shadow-2xl hover:shadow-teal-600/50"
-            >
-              <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
-              Get a Free Consultation
-            </button>
-          </MagneticButton>
+        </div>
+
+        <div data-stagger className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative z-10">
+          
+          {/* Left Panel */}
+          <div className="bg-[#11b5a4] text-white p-10 md:p-12 md:w-2/5 relative overflow-hidden flex flex-col justify-between">
+            <div className="relative z-10 space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  We'll create high-quality linkable content and build at least 40 high-authority.
+                </p>
+              </div>
+              
+              <div className="space-y-6 mt-8">
+                <div className="flex items-center gap-4">
+                  <Phone className="w-5 h-5 text-white/80" />
+                  <div className="text-sm font-medium space-y-1">
+                    <p>+8801779717686</p>
+                    <p>+988678363866</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Mail className="w-5 h-5 text-white/80" />
+                  <p className="text-sm font-medium">Support @deploysage.com</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <MapPin className="w-5 h-5 text-white/80" />
+                  <p className="text-sm font-medium">New York, USA</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Decorative Circle */}
+            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-tr from-[#31c0b1] to-[#88e0d9] rounded-full opacity-80" />
+          </div>
+
+          {/* Right Panel */}
+          <div className="bg-white p-10 md:p-12 md:w-3/5">
+            <form className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-[#11b5a4]">Your Name</label>
+                  <input type="text" placeholder="John Trangely" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-[#11b5a4]">Your Email</label>
+                  <input type="email" placeholder="hello@deploysage.com" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-[#11b5a4]">Your Subject</label>
+                <input type="text" placeholder="I want to hire you quickly" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-[#11b5a4]">Message</label>
+                <div className="relative">
+                  <input type="text" placeholder="Write here your message" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-400" />
+                </div>
+              </div>
+
+              <button type="button" className="px-6 py-3 bg-[#11b5a4] text-white text-sm font-bold rounded-md hover:bg-[#0da090] transition-colors shadow-lg shadow-[#11b5a4]/30 mt-4">
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
       </section>
 

@@ -106,11 +106,9 @@ function App() {
         <div className="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest text-white/70 uppercase backdrop-blur-md bg-white/5 px-6 py-3 rounded-full border border-white/10">
           <a href="#" className="hover:text-white transition-all duration-300 hover:scale-110">HOME</a>
           <span className="text-white/20">•</span>
-          <a href="#services" className="hover:text-white transition-all duration-300 hover:scale-110">SERVICES</a>
+          <a href="#about" className="hover:text-white transition-all duration-300 hover:scale-110">ABOUT US</a>
           <span className="text-white/20">•</span>
-          <a href="#projects" className="hover:text-white transition-all duration-300 hover:scale-110">PROJECTS</a>
-          <span className="text-white/20">•</span>
-          <a href="#contact" className="hover:text-white transition-all duration-300 hover:scale-110">CONTACT</a>
+          <a href="#contact" className="hover:text-white transition-all duration-300 hover:scale-110">CONTACT US</a>
         </div>
 
         <div className="flex items-center gap-4">
@@ -121,7 +119,7 @@ function App() {
       </nav>
 
       {/* Enhanced Hero Section with Advanced Animations */}
-      <section ref={heroRef} className="relative min-h-screen overflow-hidden">
+      <section id="about" ref={heroRef} className="relative min-h-screen overflow-hidden">
         {/* Base Deep Teal Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#2d5f5d] via-[#3a6e6c] to-[#4a7c7a]" 
              style={{
@@ -427,53 +425,10 @@ function App() {
         </div>
       </section>
 
-      {/* Enhanced Projects Section with Horizontal Carousel */}
-      <ProjectCarouselSection />
+      {/* Projects Section removed as requested */}
+      {/* <ProjectCarouselSection /> */}
 
-      {/* Services Section */}
-      <section 
-        id="services" 
-        data-animate
-        className="px-6 py-16 max-w-7xl mx-auto bg-gray-50 opacity-0 translate-y-20"
-      >
-        <div className="text-center mb-16" data-stagger>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Services</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">Comprehensive digital solutions for your business.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard
-            icon={<Code className="w-12 h-12 text-black" />}
-            title="Custom Software"
-            description="Tailor-made software built to address your specific business challenges."
-            delay={0}
-          />
-          <ServiceCard
-            icon={<Layout className="w-12 h-12 text-teal-600" />}
-            title="Web Applications"
-            description="Robust and responsive web apps that perform seamlessly."
-            delay={0.1}
-          />
-          <ServiceCard
-            icon={<Smartphone className="w-12 h-12 text-black" />}
-            title="Mobile Apps"
-            description="Native and cross-platform mobile experience."
-            delay={0.2}
-          />
-          <ServiceCard
-            icon={<Settings className="w-12 h-12 text-teal-600" />}
-            title="Integration"
-            description="Connecting existing tools and automating workflows."
-            delay={0.3}
-          />
-          <ServiceCard
-            icon={<ShieldCheck className="w-12 h-12 text-black" />}
-            title="Security"
-            description="Architecting systems that grow with top-tier security."
-            delay={0.4}
-          />
-        </div>
-      </section>
+      {/* Services Section removed as requested */}
 
       {/* CTA Section */}
       <section 

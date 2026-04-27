@@ -104,46 +104,46 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-teal-300 selection:text-teal-900 overflow-x-hidden">
 
-      {/* Responsive SaaS Navigation - Sticky Top */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-[#2d5f5d]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-4' : 'bg-transparent py-6'} px-6 md:px-12 lg:px-16`}>
+      {/* Responsive SaaS Navigation - Sticky Top & Transparent */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent ${isScrolled ? 'py-4 backdrop-blur-sm' : 'py-6'} px-6 md:px-12 lg:px-16`}>
         <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-2">
             <a href="#home">
               <img
                 src={logo}
                 alt="DeploySage Logo"
-                className="w-24 md:w-32 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105"
+                className="w-24 md:w-32 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105 drop-shadow-md"
               />
             </a>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest text-white/90 uppercase">
-            <a href="#home" className="hover:text-teal-300 transition-colors duration-300 relative group">
+          <div className={`hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest uppercase transition-colors duration-500 ${isScrolled ? 'text-[#2d5f5d]' : 'text-white/90'}`}>
+            <a href="#home" className="hover:text-teal-400 transition-colors duration-300 relative group">
               HOME
               <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
             </a>
-            <a href="#about" className="hover:text-teal-300 transition-colors duration-300 relative group">
+            <a href="#about" className="hover:text-teal-400 transition-colors duration-300 relative group">
               ABOUT US
               <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
             </a>
-            <a href="#contact" className="hover:text-teal-300 transition-colors duration-300 relative group">
+            <a href="#contact" className="hover:text-teal-400 transition-colors duration-300 relative group">
               CONTACT US
               <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
             </a>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="#contact" className="px-6 py-2 bg-white text-[#2d5f5d] text-xs font-bold rounded-full hover:bg-teal-50 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] uppercase tracking-wider inline-block">
+            <a href="#contact" className="px-6 py-2 bg-[#11b5a4] text-white text-xs font-bold rounded-full hover:bg-[#0da090] transition-colors shadow-lg uppercase tracking-wider inline-block">
               Get Started
             </a>
-            <span className="text-[10px] font-bold text-white/80 border border-white/20 px-3 py-2 rounded-full cursor-pointer hover:bg-white/20 transition-colors uppercase tracking-wider">
+            <span className={`text-[10px] font-bold border px-3 py-2 rounded-full cursor-pointer transition-colors uppercase tracking-wider ${isScrolled ? 'text-[#2d5f5d] border-[#2d5f5d]/30 hover:bg-[#2d5f5d]/10' : 'text-white/80 border-white/20 hover:bg-white/20'}`}>
               EN ▼
             </span>
           </div>
 
           {/* Mobile Menu Toggle Button */}
           <button 
-            className="md:hidden text-white hover:text-teal-300 transition-colors p-2"
+            className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-[#2d5f5d]' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -512,17 +512,16 @@ function App() {
                 <div className="flex items-center gap-4">
                   <Phone className="w-5 h-5 text-white/80" />
                   <div className="text-sm font-medium space-y-1">
-                    <p>+8801779717686</p>
-                    <p>+988678363866</p>
+                    <p>09772614419</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <Mail className="w-5 h-5 text-white/80" />
-                  <p className="text-sm font-medium">Support @deploysage.com</p>
+                  <p className="text-sm font-medium">deploysage@gmail.com</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <MapPin className="w-5 h-5 text-white/80" />
-                  <p className="text-sm font-medium">New York, USA</p>
+                  <p className="text-sm font-medium">Manila Philippines</p>
                 </div>
               </div>
             </div>

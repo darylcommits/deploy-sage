@@ -93,30 +93,42 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-teal-300 selection:text-teal-900 overflow-x-hidden">
       
-      {/* Navigation Header with Backdrop Blur */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 lg:px-16 transition-all duration-700">
-        <div className="flex items-center gap-2">
-          <img 
-            src={logo} 
-            alt="DeploySage Logo" 
-            className="w-32 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105" 
-          />
-        </div>
+      {/* Floating SaaS Navigation */}
+      <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+        <nav className="pointer-events-auto flex items-center justify-between px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl w-full max-w-5xl transition-all duration-500">
+          <div className="flex items-center gap-2">
+            <img 
+              src={logo} 
+              alt="DeploySage Logo" 
+              className="w-24 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105" 
+            />
+          </div>
 
-        <div className="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest text-white/70 uppercase backdrop-blur-md bg-white/5 px-6 py-3 rounded-full border border-white/10">
-          <a href="#" className="hover:text-white transition-all duration-300 hover:scale-110">HOME</a>
-          <span className="text-white/20">•</span>
-          <a href="#about" className="hover:text-white transition-all duration-300 hover:scale-110">ABOUT US</a>
-          <span className="text-white/20">•</span>
-          <a href="#contact" className="hover:text-white transition-all duration-300 hover:scale-110">CONTACT US</a>
-        </div>
+          <div className="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest text-white/90 uppercase">
+            <a href="#home" className="hover:text-teal-300 transition-colors duration-300 relative group">
+              HOME
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+            </a>
+            <a href="#about" className="hover:text-teal-300 transition-colors duration-300 relative group">
+              ABOUT US
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+            </a>
+            <a href="#contact" className="hover:text-teal-300 transition-colors duration-300 relative group">
+              CONTACT US
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+            </a>
+          </div>
 
-        <div className="flex items-center gap-4">
-          <span className="text-[10px] font-bold text-white/80 border border-white/20 px-3 py-2 rounded-full cursor-pointer hover:bg-white/10 hover:border-white/40 transition-all duration-300 uppercase tracking-wider backdrop-blur-md">
-            EN ▼
-          </span>
-        </div>
-      </nav>
+          <div className="flex items-center gap-4">
+            <button className="hidden sm:block px-6 py-2 bg-white text-[#2d5f5d] text-xs font-bold rounded-full hover:bg-teal-50 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] uppercase tracking-wider">
+              Get Started
+            </button>
+            <span className="text-[10px] font-bold text-white/80 border border-white/20 px-3 py-2 rounded-full cursor-pointer hover:bg-white/20 transition-colors uppercase tracking-wider">
+              EN ▼
+            </span>
+          </div>
+        </nav>
+      </div>
 
       {/* Enhanced Hero Section with Advanced Animations */}
       <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
@@ -314,28 +326,17 @@ function App() {
           <div className="text-center space-y-4 mb-8">
             <h1 
               data-stagger
-              className="text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-none opacity-0"
+              className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight opacity-0"
               style={{
-                background: 'linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.85) 100%)',
+                background: 'linear-gradient(135deg, #ffffff 0%, #b2dfdb 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: 'drop-shadow(0 4px 40px rgba(255,255,255,0.4))',
+                filter: 'drop-shadow(0 4px 30px rgba(17,181,164,0.3))',
                 animation: 'fade-up-scale 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards'
               }}
             >
-              DESIGN. DEVELOP.
-            </h1>
-            <h1 
-              data-stagger
-              className="text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-none text-white opacity-0"
-              style={{
-                textShadow: '0 4px 50px rgba(0,0,0,0.5), 0 2px 15px rgba(255,255,255,0.15)',
-                animation: 'fade-up-scale 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards'
-              }}
-            >
-              DELIVER.
-            </h1>
+              Driving Digital <br /> Excellence.
           </div>
 
           {/* Description */}
@@ -374,7 +375,7 @@ function App() {
                 <span className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
                 <span className="relative flex items-center gap-3">
                   <MessageCircle className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
-                  GET IN TOUCH
+                  Get Free Consultation
                 </span>
               </button>
             </MagneticButton>
@@ -430,13 +431,16 @@ function App() {
               scale with your vision.
             </p>
           </div>
-          <div data-stagger className="relative">
-            <div className="absolute inset-0 bg-[#11b5a4]/10 rounded-3xl transform translate-x-4 translate-y-4"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-              alt="About Deploysage" 
-              className="relative z-10 rounded-3xl shadow-xl w-full h-[400px] object-cover"
-            />
+          <div data-stagger className="relative perspective-1000">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] rounded-3xl transform translate-x-4 translate-y-4 opacity-20 blur-xl"></div>
+            <div className="absolute inset-0 bg-[#11b5a4]/20 rounded-3xl transform translate-x-4 translate-y-4"></div>
+            <TiltCard>
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
+                alt="About Deploysage" 
+                className="relative z-10 rounded-3xl shadow-2xl w-full h-[400px] object-cover border border-white/20"
+              />
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -1062,6 +1066,42 @@ function ServiceCard({ icon, title, description, delay = 0 }) {
       <p className="text-gray-600 leading-relaxed">
         {description}
       </p>
+    </div>
+  );
+// Tilt Card Component for 3D Hover Effects
+function TiltCard({ children }) {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    
+    // Calculate tilt angles (max 15 degrees)
+    const tiltX = (y - 0.5) * 15;
+    const tiltY = (x - 0.5) * -15;
+    
+    setTilt({ x: tiltX, y: tiltY });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+        transition: 'transform 0.1s ease-out'
+      }}
+      className="w-full h-full relative z-10"
+    >
+      {children}
     </div>
   );
 }

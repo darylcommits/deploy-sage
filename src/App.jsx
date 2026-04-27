@@ -14,17 +14,17 @@ function App() {
       if (stripsRef.current && heroRef.current) {
         const scrolled = window.pageYOffset;
         const heroHeight = heroRef.current.offsetHeight;
-        
+
         // Multi-layer parallax with different speeds
         const parallaxLayers = stripsRef.current.querySelectorAll('[data-parallax]');
         parallaxLayers.forEach((layer) => {
           const speed = parseFloat(layer.getAttribute('data-parallax')) || 0.5;
           layer.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
         });
-        
+
         // Horizontal parallax for strips
         stripsRef.current.style.transform = `translate3d(${scrolled * 0.15}px, 0, 0)`;
-        
+
         // Advanced fade with scale
         const opacity = Math.max(0, 1 - (scrolled / heroHeight) * 1.2);
         const scale = Math.max(0.95, 1 - (scrolled / heroHeight) * 0.05);
@@ -58,7 +58,7 @@ function App() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-in');
-          
+
           // Stagger children animations
           const children = entry.target.querySelectorAll('[data-stagger]');
           children.forEach((child, index) => {
@@ -78,7 +78,7 @@ function App() {
     const heroObserver = new IntersectionObserver((entries) => {
       setIsHeroVisible(entries[0].isIntersecting);
     }, { threshold: 0.3 });
-    
+
     if (heroRef.current) {
       heroObserver.observe(heroRef.current);
     }
@@ -92,15 +92,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-teal-300 selection:text-teal-900 overflow-x-hidden">
-      
+
       {/* Floating SaaS Navigation */}
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
         <nav className="pointer-events-auto flex items-center justify-between px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl w-full max-w-5xl transition-all duration-500">
           <div className="flex items-center gap-2">
-            <img 
-              src={logo} 
-              alt="DeploySage Logo" 
-              className="w-24 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105" 
+            <img
+              src={logo}
+              alt="DeploySage Logo"
+              className="w-24 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105"
             />
           </div>
 
@@ -133,15 +133,15 @@ function App() {
       {/* Enhanced Hero Section with Advanced Animations */}
       <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
         {/* Base Deep Teal Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#2d5f5d] via-[#3a6e6c] to-[#4a7c7a]" 
-             style={{
-               backgroundSize: '400% 400%',
-               animation: 'gradient-shift 20s ease infinite'
-             }} 
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2d5f5d] via-[#3a6e6c] to-[#4a7c7a]"
+          style={{
+            backgroundSize: '400% 400%',
+            animation: 'gradient-shift 20s ease infinite'
+          }}
         />
 
         {/* Animated Vertical Strips Layer with Enhanced Parallax */}
-        <div 
+        <div
           ref={stripsRef}
           className="absolute inset-0 transition-all duration-100 ease-out will-change-transform"
           style={{
@@ -176,7 +176,7 @@ function App() {
         />
 
         {/* Secondary Strips with Different Speed */}
-        <div 
+        <div
           data-parallax="0.1"
           className="absolute inset-0 opacity-40"
           style={{
@@ -200,7 +200,7 @@ function App() {
         />
 
         {/* Diagonal Accent Strips */}
-        <div 
+        <div
           data-parallax="0.3"
           className="absolute inset-0 opacity-20"
           style={{
@@ -221,14 +221,14 @@ function App() {
 
         {/* Enhanced Glow Effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div 
+          <div
             className="absolute top-0 left-0 bottom-0 w-96"
             style={{
               background: 'radial-gradient(ellipse at left, rgba(255, 255, 255, 0.15) 0%, transparent 70%)',
               animation: 'glow-pulse 4s ease-in-out infinite'
             }}
           />
-          <div 
+          <div
             className="absolute top-0 right-0 bottom-0 w-96"
             style={{
               background: 'radial-gradient(ellipse at right, rgba(255, 255, 255, 0.15) 0%, transparent 70%)',
@@ -239,7 +239,7 @@ function App() {
 
         {/* Glass-morphism Vertical Accent Strips with Enhanced Animation */}
         <div className="absolute inset-0 pointer-events-none">
-          <div 
+          <div
             data-parallax="0.2"
             className="absolute top-0 bottom-0 left-[20%] w-32 backdrop-blur-[2px]"
             style={{
@@ -247,7 +247,7 @@ function App() {
               animation: 'fade-in-out 6s ease-in-out infinite'
             }}
           />
-          <div 
+          <div
             data-parallax="0.15"
             className="absolute top-0 bottom-0 right-[30%] w-24 backdrop-blur-[1px]"
             style={{
@@ -255,7 +255,7 @@ function App() {
               animation: 'fade-in-out 6s ease-in-out infinite 2s'
             }}
           />
-          <div 
+          <div
             data-parallax="0.25"
             className="absolute top-0 bottom-0 left-[60%] w-40 backdrop-blur-[2px]"
             style={{
@@ -266,7 +266,7 @@ function App() {
         </div>
 
         {/* Animated Grid Pattern Overlay */}
-        <div 
+        <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `
@@ -279,7 +279,7 @@ function App() {
         />
 
         {/* Smooth Bottom Fade */}
-        <div 
+        <div
           className="absolute bottom-0 left-0 right-0 pointer-events-none z-20"
           style={{
             height: '400px',
@@ -304,14 +304,14 @@ function App() {
         {/* Hero Content with Staggered Reveals */}
         <div className="relative z-30 min-h-screen flex flex-col justify-center items-center px-6 py-20 pt-32">
           {/* Status Badge */}
-          <div 
+          <div
             data-stagger
             className="flex items-center gap-2 mb-8 opacity-0"
             style={{
               animation: 'fade-slide-down 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards'
             }}
           >
-            <span 
+            <span
               className="w-2 h-2 rounded-full bg-teal-300 shadow-lg shadow-teal-300/50"
               style={{
                 animation: 'pulse-glow 2s ease-in-out infinite'
@@ -324,7 +324,7 @@ function App() {
 
           {/* Main Headline with Character Reveal */}
           <div className="text-center space-y-4 mb-8">
-            <h1 
+            <h1
               data-stagger
               className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight opacity-0"
               style={{
@@ -341,20 +341,20 @@ function App() {
           </div>
 
           {/* Description */}
-          <p 
+          <p
             data-stagger
             className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto text-center leading-relaxed mb-10 font-light opacity-0"
             style={{
               animation: 'fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards'
             }}
           >
-            Deploysage Consulting & Solutions was started by brothers who share a passion for 
-            building technologies that create real impact in society. We guide businesses as 
+            Deploysage Consulting & Solutions was started by brothers who share a passion for
+            building technologies that create real impact in society. We guide businesses as
             they transition into technology-driven organizations.
           </p>
 
           {/* CTA Buttons with Magnetic Effect */}
-          <div 
+          <div
             data-stagger
             className="flex flex-col sm:flex-row gap-4 mb-16 opacity-0"
             style={{
@@ -370,7 +370,7 @@ function App() {
                 </span>
               </button>
             </MagneticButton>
-            
+
             <MagneticButton>
               <button className="group relative px-8 py-4 bg-transparent border-2 border-white/30 backdrop-blur-md text-white text-sm font-bold rounded-full tracking-wider overflow-hidden hover:border-white/60">
                 <span className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
@@ -385,7 +385,7 @@ function App() {
           {/* Removed Portfolio Preview Cards as requested */}
 
           {/* Scroll Indicator */}
-          <div 
+          <div
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 hover:text-white/90 transition-all duration-500 cursor-pointer"
             style={{
               animation: 'bounce-gentle 3s ease-in-out infinite, fade-in 1s ease-out 1.5s both'
@@ -393,7 +393,7 @@ function App() {
           >
             <span className="text-xs font-bold tracking-widest uppercase">Scroll Down</span>
             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-white/50 hover:bg-white/10 transition-all duration-300">
-              <ArrowRight 
+              <ArrowRight
                 className="w-4 h-4 rotate-90"
                 style={{
                   animation: 'bounce-slow 2s ease-in-out infinite'
@@ -410,8 +410,8 @@ function App() {
       {/* Services Section removed as requested */}
 
       {/* About Us Section */}
-      <section 
-        id="about" 
+      <section
+        id="about"
         data-animate
         className="py-24 px-6 max-w-7xl mx-auto opacity-0 translate-y-20"
       >
@@ -419,16 +419,16 @@ function App() {
           <div data-stagger className="space-y-6">
             <h2 className="text-sm font-bold text-[#11b5a4] uppercase tracking-widest">About Us</h2>
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Driving Digital <br/>
+              Driving Digital <br />
               <span className="text-[#11b5a4]">Innovation</span> Forward
             </h3>
             <p className="text-gray-600 leading-relaxed text-lg">
-              Deploysage Consulting & Solutions was started by brothers who share a passion for 
+              Deploysage Consulting & Solutions was started by brothers who share a passion for
               building technologies that create real impact in society.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              We guide businesses as they transition into technology-driven organizations. Our goal is to 
-              deliver tailored software, comprehensive web applications, and seamless integrations that 
+              We guide businesses as they transition into technology-driven organizations. Our goal is to
+              deliver tailored software, comprehensive web applications, and seamless integrations that
               scale with your vision.
             </p>
           </div>
@@ -436,9 +436,9 @@ function App() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] rounded-3xl transform translate-x-4 translate-y-4 opacity-20 blur-xl"></div>
             <div className="absolute inset-0 bg-[#11b5a4]/20 rounded-3xl transform translate-x-4 translate-y-4"></div>
             <TiltCard>
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-                alt="About Deploysage" 
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+                alt="About Deploysage"
                 className="relative z-10 rounded-3xl shadow-2xl w-full h-[400px] object-cover border border-white/20"
               />
             </TiltCard>
@@ -447,8 +447,8 @@ function App() {
       </section>
 
       {/* Contact Us Section */}
-      <section 
-        id="contact" 
+      <section
+        id="contact"
         data-animate
         className="py-24 px-6 bg-gradient-to-b from-[#e6f5f4] to-white opacity-0 translate-y-20 relative"
       >
@@ -463,7 +463,7 @@ function App() {
         </div>
 
         <div data-stagger className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative z-10">
-          
+
           {/* Left Panel */}
           <div className="bg-[#11b5a4] text-white p-10 md:p-12 md:w-2/5 relative overflow-hidden flex flex-col justify-between">
             <div className="relative z-10 space-y-8">
@@ -473,7 +473,7 @@ function App() {
                   We'll create high-quality linkable content and build at least 40 high-authority.
                 </p>
               </div>
-              
+
               <div className="space-y-6 mt-8">
                 <div className="flex items-center gap-4">
                   <Phone className="w-5 h-5 text-white/80" />
@@ -492,7 +492,7 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             {/* Decorative Circle */}
             <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-tr from-[#31c0b1] to-[#88e0d9] rounded-full opacity-80" />
           </div>
@@ -510,7 +510,7 @@ function App() {
                   <input type="email" placeholder="hello@deploysage.com" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#11b5a4]">Your Subject</label>
                 <input type="text" placeholder="I want to hire you quickly" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
@@ -535,10 +535,10 @@ function App() {
       <footer className="bg-black text-gray-400 py-12 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2 text-2xl font-bold text-white tracking-tight">
-            <img 
-              src={logo} 
-              alt="DeploySage Logo" 
-              className="w-32 h-auto rounded-lg object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+            <img
+              src={logo}
+              alt="DeploySage Logo"
+              className="w-32 h-auto rounded-lg object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             />
             <span>Deploy<span className="text-teal-500">Sage</span></span>
           </div>
@@ -742,8 +742,8 @@ function ProjectCarouselSection() {
       const cardWidth = 450; // Approximate card width + gap
       const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      
-      const newIndex = direction === 'left' 
+
+      const newIndex = direction === 'left'
         ? Math.max(0, currentIndex - 1)
         : Math.min(projects.length - 1, currentIndex + 1);
       setCurrentIndex(newIndex);
@@ -769,7 +769,7 @@ function ProjectCarouselSection() {
   };
 
   return (
-    <section 
+    <section
       id="projects"
       data-animate
       className="relative py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden opacity-0 translate-y-20"
@@ -792,7 +792,7 @@ function ProjectCarouselSection() {
               </span>
             </h2>
             <p className="text-gray-600 leading-relaxed max-w-md">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               Lorem Ipsum has been the industry's standard.
             </p>
           </div>
@@ -821,14 +821,14 @@ function ProjectCarouselSection() {
         </div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           ref={scrollRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth pb-8 cursor-grab active:cursor-grabbing select-none"
-          style={{ 
+          style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none'
           }}
@@ -852,11 +852,10 @@ function ProjectCarouselSection() {
                   });
                 }
               }}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'w-12 bg-gradient-to-r from-teal-600 to-blue-600' 
+              className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                  ? 'w-12 bg-gradient-to-r from-teal-600 to-blue-600'
                   : 'w-2 bg-gray-300 hover:bg-gray-400'
-              }`}
+                }`}
             />
           ))}
         </div>
@@ -891,8 +890,8 @@ function ProjectCard3D({ project, index }) {
       onMouseMove={handleMouseMove}
       className="group relative min-w-[420px] h-[560px] rounded-3xl overflow-hidden cursor-pointer transition-all duration-700"
       style={{
-        transform: isHovered 
-          ? `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)` 
+        transform: isHovered
+          ? `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`
           : 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)',
         transformStyle: 'preserve-3d',
         transitionDelay: `${index * 100}ms`
@@ -903,7 +902,7 @@ function ProjectCard3D({ project, index }) {
 
       {/* Image with Parallax */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
+        <div
           className="w-full h-full bg-cover bg-center transition-transform duration-700 grayscale group-hover:grayscale-0"
           style={{
             backgroundImage: `url("${project.image}")`,
@@ -920,9 +919,9 @@ function ProjectCard3D({ project, index }) {
           <span className="px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold tracking-wider uppercase border border-white/30">
             {project.status}
           </span>
-          
+
           {/* Decorative Element */}
-          <div 
+          <div
             className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:scale-110 group-hover:rotate-90"
           >
             <ArrowRight className="w-5 h-5 text-white -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
@@ -930,7 +929,7 @@ function ProjectCard3D({ project, index }) {
         </div>
 
         {/* Bottom Content */}
-        <div 
+        <div
           className="space-y-4 transform transition-all duration-500"
           style={{
             transform: isHovered ? 'translateY(-10px)' : 'translateY(0)',
@@ -949,7 +948,7 @@ function ProjectCard3D({ project, index }) {
           </div>
 
           {/* Action Button */}
-          <button 
+          <button
             className="flex items-center gap-3 px-6 py-3 bg-white text-gray-900 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 group-hover:bg-white group-hover:shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0"
           >
             View Project
@@ -959,7 +958,7 @@ function ProjectCard3D({ project, index }) {
       </div>
 
       {/* Hover Glow Effect */}
-      <div 
+      <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
           background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(255,255,255,0.2) 0%, transparent 50%)`,
@@ -976,11 +975,11 @@ function MagneticButton({ children }) {
 
   const handleMouseMove = (e) => {
     if (!buttonRef.current) return;
-    
+
     const rect = buttonRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    
+
     setPosition({ x: x * 0.3, y: y * 0.3 });
   };
 
@@ -1026,8 +1025,8 @@ function ImageRevealCard({ imageUrl, className, delay = 0 }) {
   }, [delay]);
 
   return (
-    <div 
-      ref={cardRef} 
+    <div
+      ref={cardRef}
       className={`${className} rounded-2xl shadow-2xl shrink-0 border border-white/10 overflow-hidden snap-center group cursor-pointer relative`}
       style={{
         transform: isVisible ? 'scale(1)' : 'scale(0.9)',
@@ -1035,13 +1034,13 @@ function ImageRevealCard({ imageUrl, className, delay = 0 }) {
         transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
       }}
     >
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url("${imageUrl}")`,
         }}
       />
-      <div 
+      <div
         className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
       />
     </div>
@@ -1050,8 +1049,8 @@ function ImageRevealCard({ imageUrl, className, delay = 0 }) {
 
 // Service Card Component
 function ServiceCard({ icon, title, description, delay = 0 }) {
-    return (
-    <div 
+  return (
+    <div
       data-stagger
       className="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 group cursor-pointer"
       style={{
@@ -1069,6 +1068,8 @@ function ServiceCard({ icon, title, description, delay = 0 }) {
       </p>
     </div>
   );
+}
+
 // Tilt Card Component for 3D Hover Effects
 function TiltCard({ children }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -1079,11 +1080,11 @@ function TiltCard({ children }) {
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
-    
+
     // Calculate tilt angles (max 15 degrees)
     const tiltX = (y - 0.5) * 15;
     const tiltY = (x - 0.5) * -15;
-    
+
     setTilt({ x: tiltX, y: tiltY });
   };
 

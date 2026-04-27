@@ -484,7 +484,7 @@ function App() {
       <section
         id="contact"
         data-animate
-        className="py-24 px-6 bg-gradient-to-b from-[#e6f5f4] to-white opacity-0 translate-y-20 relative"
+        className="pt-24 pb-40 px-6 bg-gradient-to-b from-[#e6f5f4] to-white opacity-0 translate-y-20 relative"
       >
         <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
           <h2 data-stagger className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -564,18 +564,92 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-black text-gray-400 py-12 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 text-2xl font-bold text-white tracking-tight">
-            <img
-              src={logo}
-              alt="DeploySage Logo"
-              className="w-32 h-auto rounded-lg object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-            />
-            <span>Deploy<span className="text-teal-500">Sage</span></span>
+      {/* Enhanced SaaS Footer */}
+      <footer className="bg-[#0b1716] text-gray-400 pt-20 pb-10 border-t border-[#11b5a4]/20 relative overflow-hidden">
+        {/* Decorative Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#11b5a4]/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+            
+            {/* Brand Column */}
+            <div className="lg:col-span-4 space-y-6">
+              <a href="#home" className="inline-block">
+                <img
+                  src={logo}
+                  alt="DeploySage Logo"
+                  className="w-40 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105 hover:brightness-125"
+                />
+              </a>
+              <p className="text-gray-400 leading-relaxed text-sm max-w-sm">
+                Driving digital innovation forward. We deliver tailored software, comprehensive web applications, and seamless integrations that scale with your vision.
+              </p>
+              <div className="flex items-center gap-4 pt-2">
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#11b5a4] hover:text-white transition-all duration-300 group">
+                  <Layout className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#11b5a4] hover:text-white transition-all duration-300 group">
+                  <Smartphone className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#11b5a4] hover:text-white transition-all duration-300 group">
+                  <Code className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="lg:col-span-2 lg:col-start-7 space-y-6">
+              <h4 className="text-white font-bold tracking-wider text-sm uppercase">Company</h4>
+              <ul className="space-y-4">
+                <li><a href="#home" className="text-sm hover:text-[#11b5a4] transition-colors">Home</a></li>
+                <li><a href="#about" className="text-sm hover:text-[#11b5a4] transition-colors">About Us</a></li>
+                <li><a href="#contact" className="text-sm hover:text-[#11b5a4] transition-colors">Contact</a></li>
+                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Careers</a></li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div className="lg:col-span-2 space-y-6">
+              <h4 className="text-white font-bold tracking-wider text-sm uppercase">Services</h4>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Web Development</a></li>
+                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">App Design</a></li>
+                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Cloud Solutions</a></li>
+                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Consulting</a></li>
+              </ul>
+            </div>
+
+            {/* Newsletter */}
+            <div className="lg:col-span-3 space-y-6">
+              <h4 className="text-white font-bold tracking-wider text-sm uppercase">Stay Updated</h4>
+              <p className="text-sm text-gray-400">Subscribe to our newsletter for the latest tech insights.</p>
+              <form className="flex flex-col sm:flex-row gap-2">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#11b5a4] transition-colors w-full"
+                />
+                <button 
+                  type="button" 
+                  className="bg-[#11b5a4] text-white px-6 py-3 rounded-lg text-sm font-bold hover:bg-[#0da090] transition-colors whitespace-nowrap shadow-lg shadow-[#11b5a4]/20"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+
           </div>
-          <p className="text-sm">© {new Date().getFullYear()} Deploysage. All rights reserved.</p>
+
+          {/* Bottom Bar */}
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Deploysage Consulting & Solutions. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-sm text-gray-500">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
         </div>
       </footer>
 

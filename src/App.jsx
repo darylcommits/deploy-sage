@@ -1,14 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin, Menu, X, Facebook, Instagram, Github, Globe, Server, Bot, Zap, TrendingUp, Target, Wrench } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import logo from './assets/logo.png';
 
 function App() {
   const stripsRef = useRef(null);
   const heroRef = useRef(null);
+  const formRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHeroVisible, setIsHeroVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formStatus, setFormStatus] = useState('idle'); // idle | sending | success | error
 
   // Handle scroll for sticky nav background
   useEffect(() => {
@@ -679,32 +683,108 @@ function App() {
 
           {/* Right Panel */}
           <div className="bg-white p-10 md:p-12 md:w-3/5">
-            <form className="space-y-8">
+            <form ref={formRef} className="space-y-8" onSubmit={async (e) => {
+              e.preventDefault();
+              if (!formData.name || !formData.email || !formData.message) return;
+              setFormStatus('sending');
+              try {
+                // Replace these with your actual EmailJS credentials
+                await emailjs.sendForm(
+                  'YOUR_SERVICE_ID',
+                  'YOUR_TEMPLATE_ID',
+                  formRef.current,
+                  'YOUR_PUBLIC_KEY'
+                );
+                setFormStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '' });
+                setTimeout(() => setFormStatus('idle'), 5000);
+              } catch (err) {
+                setFormStatus('error');
+                setTimeout(() => setFormStatus('idle'), 5000);
+              }
+            }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-[#11b5a4]">Your Name</label>
-                  <input type="text" placeholder="John Trangely" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
+                  <input
+                    type="text"
+                    name="from_name"
+                    required
+                    value={formData.name}
+                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
+                    placeholder="Juan dela Cruz"
+                    className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-400 font-medium"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-[#11b5a4]">Your Email</label>
-                  <input type="email" placeholder="hello@deploysage.com" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
+                  <input
+                    type="email"
+                    name="from_email"
+                    required
+                    value={formData.email}
+                    onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
+                    placeholder="hello@example.com"
+                    className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-400 font-medium"
+                  />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-[#11b5a4]">Your Subject</label>
-                <input type="text" placeholder="I want to hire you quickly" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-900 font-medium" />
+                <label className="text-xs font-bold text-[#11b5a4]">Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={e => setFormData(p => ({ ...p, subject: e.target.value }))}
+                  placeholder="How can we help you?"
+                  className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-400 font-medium"
+                />
               </div>
 
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#11b5a4]">Message</label>
-                <div className="relative">
-                  <input type="text" placeholder="Write here your message" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-400" />
-                </div>
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={e => setFormData(p => ({ ...p, message: e.target.value }))}
+                  placeholder="Tell us about your project..."
+                  className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-[#11b5a4] transition-colors text-gray-800 placeholder:text-gray-400 resize-none"
+                />
               </div>
 
-              <button type="button" className="px-6 py-3 bg-[#11b5a4] text-white text-sm font-bold rounded-md hover:bg-[#0da090] transition-colors shadow-lg shadow-[#11b5a4]/30 mt-4">
-                Send Message
+              {/* Status Messages */}
+              {formStatus === 'success' && (
+                <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium">
+                  <ShieldCheck className="w-5 h-5 flex-shrink-0" />
+                  Message sent! We'll get back to you shortly.
+                </div>
+              )}
+              {formStatus === 'error' && (
+                <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium">
+                  <X className="w-5 h-5 flex-shrink-0" />
+                  Something went wrong. Please try again or email us directly.
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={formStatus === 'sending'}
+                className="flex items-center gap-3 px-8 py-3 bg-[#11b5a4] text-white text-sm font-bold rounded-full hover:bg-[#0da090] transition-colors shadow-lg shadow-[#11b5a4]/30 mt-4 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {formStatus === 'sending' ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <MessageCircle className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </form>
           </div>

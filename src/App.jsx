@@ -833,8 +833,8 @@ function App() {
               <ul className="space-y-4">
                 <li><a href="#home" className="text-sm hover:text-[#11b5a4] transition-colors">Home</a></li>
                 <li><a href="#about" className="text-sm hover:text-[#11b5a4] transition-colors">About Us</a></li>
+                <li><a href="#services" className="text-sm hover:text-[#11b5a4] transition-colors">Services</a></li>
                 <li><a href="#contact" className="text-sm hover:text-[#11b5a4] transition-colors">Contact</a></li>
-                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Careers</a></li>
               </ul>
             </div>
 
@@ -842,10 +842,10 @@ function App() {
             <div className="lg:col-span-2 space-y-6">
               <h4 className="text-white font-bold tracking-wider text-sm uppercase">Services</h4>
               <ul className="space-y-4">
-                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Web Development</a></li>
-                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">App Design</a></li>
-                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Cloud Solutions</a></li>
-                <li><a href="#" className="text-sm hover:text-[#11b5a4] transition-colors">Consulting</a></li>
+                <li><a href="#services" className="text-sm hover:text-[#11b5a4] transition-colors">Website Dev</a></li>
+                <li><a href="#services" className="text-sm hover:text-[#11b5a4] transition-colors">Custom Systems</a></li>
+                <li><a href="#services" className="text-sm hover:text-[#11b5a4] transition-colors">AI Automation</a></li>
+                <li><a href="#services" className="text-sm hover:text-[#11b5a4] transition-colors">Digital Marketing</a></li>
               </ul>
             </div>
 

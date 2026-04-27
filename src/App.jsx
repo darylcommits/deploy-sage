@@ -337,6 +337,7 @@ function App() {
               }}
             >
               Driving Digital <br /> Excellence.
+            </h1>
           </div>
 
           {/* Description */}

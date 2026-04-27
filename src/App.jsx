@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin, Menu, X, Facebook, Instagram, Github } from 'lucide-react';
+import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin, Menu, X, Facebook, Instagram, Github, Globe, Server, Bot, Zap, TrendingUp, Target, Wrench } from 'lucide-react';
 import logo from './assets/logo.png';
 
 function App() {
@@ -126,6 +126,10 @@ function App() {
               ABOUT US
               <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
             </a>
+            <a href="#services" className="hover:text-teal-400 transition-colors duration-300 relative group">
+              SERVICES
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+            </a>
             <a href="#contact" className="hover:text-teal-400 transition-colors duration-300 relative group">
               CONTACT US
               <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-teal-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -136,13 +140,10 @@ function App() {
             <a href="#contact" className="px-6 py-2 bg-[#11b5a4] text-white text-xs font-bold rounded-full hover:bg-[#0da090] transition-colors shadow-lg uppercase tracking-wider inline-block">
               Get Started
             </a>
-            <span className={`text-[10px] font-bold border px-3 py-2 rounded-full cursor-pointer transition-colors uppercase tracking-wider ${isScrolled ? 'text-[#2d5f5d] border-[#2d5f5d]/30 hover:bg-[#2d5f5d]/10' : 'text-white/80 border-white/20 hover:bg-white/20'}`}>
-              EN ▼
-            </span>
           </div>
 
           {/* Mobile Menu Toggle Button */}
-          <button 
+          <button
             className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-[#2d5f5d]' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -447,7 +448,7 @@ function App() {
       <section
         id="about"
         data-animate
-        className="py-24 px-6 max-w-7xl mx-auto opacity-0 translate-y-20"
+        className="pt-24 pb-40 px-6 max-w-7xl mx-auto opacity-0 translate-y-20"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div data-stagger className="space-y-6">
@@ -476,6 +477,152 @@ function App() {
                 className="relative z-10 rounded-3xl shadow-2xl w-full h-[400px] object-cover border border-white/20"
               />
             </TiltCard>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" data-animate className="py-20 px-6 bg-[#0b1716] relative overflow-hidden">
+        {/* Abstract Background Elements */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#11b5a4]/20 to-transparent rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#2d5f5d]/30 to-transparent rounded-full blur-[100px] pointer-events-none -translate-x-1/2 translate-y-1/2"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20 space-y-4">
+            <span data-stagger className="text-[#11b5a4] font-bold tracking-widest text-sm uppercase inline-block opacity-0">Our Expertise</span>
+            <h2 data-stagger className="text-4xl md:text-5xl font-bold text-white opacity-0">
+              Transformative <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-[#11b5a4]">Digital Services</span>
+            </h2>
+            <p data-stagger className="text-gray-400 max-w-2xl mx-auto mt-4 opacity-0">
+              We provide end-to-end solutions designed to scale your business, automate operations, and dominate your market.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {/* Service 1 */}
+            <div data-stagger className="opacity-0 translate-y-8">
+              <TiltCard>
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl h-full flex flex-col hover:bg-white/10 hover:border-[#11b5a4]/50 transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#11b5a4]/10 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-[#11b5a4]/20 transition-colors duration-500"></div>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 relative z-10 group-hover:text-[#11b5a4] transition-colors">Website Development</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                    Modern, responsive, and high-performing websites designed to convert visitors into customers.
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
+
+            {/* Service 2 */}
+            <div data-stagger className="opacity-0 translate-y-8">
+              <TiltCard>
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl h-full flex flex-col hover:bg-white/10 hover:border-[#11b5a4]/50 transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#11b5a4]/10 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-[#11b5a4]/20 transition-colors duration-500"></div>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <Settings className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 relative z-10 group-hover:text-[#11b5a4] transition-colors">Custom System Development</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                    Tailored business systems that streamline operations and replace manual processes.
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
+
+            {/* Service 3 */}
+            <div data-stagger className="opacity-0 translate-y-8">
+              <TiltCard>
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl h-full flex flex-col hover:bg-white/10 hover:border-[#11b5a4]/50 transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#11b5a4]/10 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-[#11b5a4]/20 transition-colors duration-500"></div>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <Bot className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 relative z-10 group-hover:text-[#11b5a4] transition-colors">AI Automation Solutions</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                    Smart automation to reduce repetitive tasks and improve efficiency using AI.
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
+
+            {/* Service 4 */}
+            <div data-stagger className="opacity-0 translate-y-8">
+              <TiltCard>
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl h-full flex flex-col hover:bg-white/10 hover:border-[#11b5a4]/50 transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#11b5a4]/10 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-[#11b5a4]/20 transition-colors duration-500"></div>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 relative z-10 group-hover:text-[#11b5a4] transition-colors">Digital Transformation</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                    Upgrade your business from manual to fully digital workflows for faster and smarter operations.
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
+
+            {/* Service 5 */}
+            <div data-stagger className="opacity-0 translate-y-8">
+              <TiltCard>
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl h-full flex flex-col hover:bg-white/10 hover:border-[#11b5a4]/50 transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#11b5a4]/10 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-[#11b5a4]/20 transition-colors duration-500"></div>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 relative z-10 group-hover:text-[#11b5a4] transition-colors">Digital Marketing</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                    Strategic marketing solutions to grow your online presence and reach your target audience.
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
+
+            {/* Service 6 */}
+            <div data-stagger className="opacity-0 translate-y-8">
+              <TiltCard>
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl h-full flex flex-col hover:bg-white/10 hover:border-[#11b5a4]/50 transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#11b5a4]/10 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-[#11b5a4]/20 transition-colors duration-500"></div>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 relative z-10 group-hover:text-[#11b5a4] transition-colors">Advertising Solutions</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                    Data-driven ad campaigns that generate real results and maximize ROI.
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
+
+            {/* Service 7 */}
+            <div data-stagger className="opacity-0 translate-y-8 md:col-span-2 xl:col-span-1">
+              <TiltCard>
+                <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl h-full flex flex-col hover:bg-white/10 hover:border-[#11b5a4]/50 transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#11b5a4]/10 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-[#11b5a4]/20 transition-colors duration-500"></div>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] flex items-center justify-center mb-6 shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <Wrench className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 relative z-10 group-hover:text-[#11b5a4] transition-colors">Maintenance & Support</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                    Ongoing updates, security, and performance optimization to keep your systems running smoothly.
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
+            
+            {/* CTA Card for exactly 8 grid items */}
+            <div data-stagger className="opacity-0 translate-y-8 md:col-span-2 xl:col-span-1">
+              <TiltCard>
+                <div className="bg-gradient-to-br from-[#11b5a4] to-[#2d5f5d] p-8 rounded-2xl h-full flex flex-col justify-center items-center text-center hover:shadow-[0_0_30px_rgba(17,181,164,0.4)] transition-all duration-500 group relative overflow-hidden cursor-pointer">
+                  <h3 className="text-2xl font-bold text-white mb-4 relative z-10">Ready to start?</h3>
+                  <a href="#contact" className="px-6 py-2 bg-white text-[#2d5f5d] text-sm font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg flex items-center gap-2 group-hover:scale-105">
+                    Get a Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </TiltCard>
+            </div>
+
           </div>
         </div>
       </section>
@@ -571,7 +718,7 @@ function App() {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-            
+
             {/* Brand Column */}
             <div className="lg:col-span-4 space-y-6">
               <a href="#home" className="inline-block">
@@ -624,13 +771,13 @@ function App() {
               <h4 className="text-white font-bold tracking-wider text-sm uppercase">Stay Updated</h4>
               <p className="text-sm text-gray-400">Subscribe to our newsletter for the latest tech insights.</p>
               <form className="flex flex-col sm:flex-row gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
+                <input
+                  type="email"
+                  placeholder="Enter your email"
                   className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#11b5a4] transition-colors w-full"
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="bg-[#11b5a4] text-white px-6 py-3 rounded-lg text-sm font-bold hover:bg-[#0da090] transition-colors whitespace-nowrap shadow-lg shadow-[#11b5a4]/20"
                 >
                   Subscribe
@@ -960,8 +1107,8 @@ function ProjectCarouselSection() {
                 }
               }}
               className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                  ? 'w-12 bg-gradient-to-r from-teal-600 to-blue-600'
-                  : 'w-2 bg-gray-300 hover:bg-gray-400'
+                ? 'w-12 bg-gradient-to-r from-teal-600 to-blue-600'
+                : 'w-2 bg-gray-300 hover:bg-gray-400'
                 }`}
             />
           ))}

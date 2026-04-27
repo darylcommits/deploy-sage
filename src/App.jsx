@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin, Menu, X } from 'lucide-react';
+import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin, Menu, X, Facebook, Instagram, Github } from 'lucide-react';
 import logo from './assets/logo.png';
 
 function App() {
@@ -586,13 +586,13 @@ function App() {
               </p>
               <div className="flex items-center gap-4 pt-2">
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#11b5a4] hover:text-white transition-all duration-300 group">
-                  <Layout className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 </a>
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#11b5a4] hover:text-white transition-all duration-300 group">
-                  <Smartphone className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 </a>
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#11b5a4] hover:text-white transition-all duration-300 group">
-                  <Code className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 </a>
               </div>
             </div>

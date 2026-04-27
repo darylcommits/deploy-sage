@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, ArrowLeft, MessageCircle, Code, Layout, Smartphone, Settings, ShieldCheck, Phone, Mail, MapPin, Menu, X } from 'lucide-react';
 import logo from './assets/logo.png';
 
 function App() {
@@ -7,6 +7,17 @@ function App() {
   const heroRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHeroVisible, setIsHeroVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll for sticky nav background
+  useEffect(() => {
+    const handleNavScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleNavScroll);
+  }, []);
 
   // Advanced parallax with multiple layers
   useEffect(() => {
@@ -93,15 +104,17 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-teal-300 selection:text-teal-900 overflow-x-hidden">
 
-      {/* Floating SaaS Navigation */}
-      <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-        <nav className="pointer-events-auto flex items-center justify-between px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl w-full max-w-5xl transition-all duration-500">
+      {/* Responsive SaaS Navigation - Sticky Top */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-[#2d5f5d]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-4' : 'bg-transparent py-6'} px-6 md:px-12 lg:px-16`}>
+        <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-2">
-            <img
-              src={logo}
-              alt="DeploySage Logo"
-              className="w-24 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105"
-            />
+            <a href="#home">
+              <img
+                src={logo}
+                alt="DeploySage Logo"
+                className="w-24 md:w-32 h-auto rounded-lg object-contain transition-all duration-500 hover:scale-105"
+              />
+            </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest text-white/90 uppercase">
@@ -119,16 +132,36 @@ function App() {
             </a>
           </div>
 
-          <div className="flex items-center gap-4">
-            <button className="hidden sm:block px-6 py-2 bg-white text-[#2d5f5d] text-xs font-bold rounded-full hover:bg-teal-50 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] uppercase tracking-wider">
+          <div className="hidden md:flex items-center gap-4">
+            <a href="#contact" className="px-6 py-2 bg-white text-[#2d5f5d] text-xs font-bold rounded-full hover:bg-teal-50 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] uppercase tracking-wider inline-block">
               Get Started
-            </button>
+            </a>
             <span className="text-[10px] font-bold text-white/80 border border-white/20 px-3 py-2 rounded-full cursor-pointer hover:bg-white/20 transition-colors uppercase tracking-wider">
               EN ▼
             </span>
           </div>
-        </nav>
-      </div>
+
+          {/* Mobile Menu Toggle Button */}
+          <button 
+            className="md:hidden text-white hover:text-teal-300 transition-colors p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <div className={`md:hidden absolute top-full left-0 w-full bg-[#1b4341] border-t border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-96 opacity-100 shadow-2xl' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+          <div className="flex flex-col px-6 py-4 space-y-4">
+            <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase hover:text-teal-300 py-2">HOME</a>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase hover:text-teal-300 py-2">ABOUT US</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase hover:text-teal-300 py-2">CONTACT US</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full text-center px-6 py-3 bg-white text-[#2d5f5d] text-sm font-bold rounded-full uppercase tracking-wider mt-2 hover:bg-teal-50 transition-colors inline-block">
+              Get Started
+            </a>
+          </div>
+        </div>
+      </nav>
 
       {/* Enhanced Hero Section with Advanced Animations */}
       <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden">
@@ -362,30 +395,31 @@ function App() {
             }}
           >
             <MagneticButton>
-              <button className="group relative px-8 py-4 bg-white text-[#2d5f5d] text-sm font-bold rounded-full tracking-wider overflow-hidden">
+              <a href="#about" className="group relative px-8 py-4 bg-white text-[#2d5f5d] text-sm font-bold rounded-full tracking-wider overflow-hidden inline-block text-center cursor-pointer">
                 <span className="absolute inset-0 bg-gradient-to-r from-teal-400/0 via-teal-400/30 to-teal-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                <span className="relative flex items-center gap-3">
+                <span className="relative flex items-center justify-center gap-3">
                   SEE MORE
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                 </span>
-              </button>
+              </a>
             </MagneticButton>
 
             <MagneticButton>
-              <button className="group relative px-8 py-4 bg-transparent border-2 border-white/30 backdrop-blur-md text-white text-sm font-bold rounded-full tracking-wider overflow-hidden hover:border-white/60">
+              <a href="#contact" className="group relative px-8 py-4 bg-transparent border-2 border-white/30 backdrop-blur-md text-white text-sm font-bold rounded-full tracking-wider overflow-hidden hover:border-white/60 inline-block text-center cursor-pointer">
                 <span className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                <span className="relative flex items-center gap-3">
+                <span className="relative flex items-center justify-center gap-3">
                   <MessageCircle className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                   Get Free Consultation
                 </span>
-              </button>
+              </a>
             </MagneticButton>
           </div>
 
           {/* Removed Portfolio Preview Cards as requested */}
 
           {/* Scroll Indicator */}
-          <div
+          <a
+            href="#about"
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 hover:text-white/90 transition-all duration-500 cursor-pointer"
             style={{
               animation: 'bounce-gentle 3s ease-in-out infinite, fade-in 1s ease-out 1.5s both'
@@ -400,7 +434,7 @@ function App() {
                 }}
               />
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
